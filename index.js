@@ -48,8 +48,4 @@ app.get("*",(request,response) => {
   }
 })
 
-if(process.env.port !=== undefined) {
-  app.listen(process.env.port)
-} else {
-  app.listen(3000)
-}
+app.listen(process.env.PORT || 3000)
