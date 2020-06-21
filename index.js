@@ -23,7 +23,7 @@ app.use(function(req, res, next) {
 
 app.get("*",(request,response) => {
   let requestedEndpoint = request.url
-
+  console.log(requestedEndpoint)
   // detect if the requested endpoint is for internal api. if it is, check the X-K2C-KEY header
   if(requestedEndpoint.startsWith("/internal")) {
     // if the header is invalid or undefined, respond with 401 unauthorized
@@ -48,6 +48,8 @@ app.get("*",(request,response) => {
   }
 })
 
-app.listen(3000, () => {
-  console.log(`Listening.`)
-})
+if(process.env.port !=== undefined) {
+  app.listen(process.env.port)
+} else {
+  app.listen(3000)
+}
