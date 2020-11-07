@@ -1,16 +1,9 @@
 // dependencies
 const express = require("express")
 const fs = require("fs")
-const sql = require("mysql")
 
 // setup
 const app = express()
-const userDatabase = sql.createConnection({
-  host: "localhost",
-  user: "me",
-  password: 'DZuQPUOpm1NRUpZtaz0DpTG6QWiVATDaTQSFO5zqWKkEow3FispXerzyRS7MVTO8h2BbZ6FX2kzBHfUbIpgCmNXvH7OdvhEXH3U7BcoV5LC6QwbsCzhNi2jwf9j5NrCYSIU0emgDSf7HjjbYaI3jsWa',
-  database : "usr-database"
-});
 
 //app.enable('trust proxy')
 app.use(function(req, res, next) {
@@ -48,4 +41,4 @@ app.get("*",(request,response) => {
   }
 })
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 80)
